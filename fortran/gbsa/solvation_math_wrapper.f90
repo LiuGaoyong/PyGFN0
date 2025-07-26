@@ -1,20 +1,20 @@
 !================================================================================!
-! This file is part of gfnff.
+! This file is part of gfn0.
 !
 ! Copyright (C) 2023 Philipp Pracht
 !
-! gfnff is free software: you can redistribute it and/or modify it under
+! gfn0 is free software: you can redistribute it and/or modify it under
 ! the terms of the GNU Lesser General Public License as published by
 ! the Free Software Foundation, either version 3 of the License, or
 ! (at your option) any later version.
 !
-! gfnff is distributed in the hope that it will be useful,
+! gfn0 is distributed in the hope that it will be useful,
 ! but WITHOUT ANY WARRANTY; without even the implied warranty of
 ! MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ! GNU Lesser General Public License for more details.
 !
 ! You should have received a copy of the GNU Lesser General Public License
-! along with gfnff.  If not, see <https://www.gnu.org/licenses/>.
+! along with gfn0.  If not, see <https://www.gnu.org/licenses/>.
 !================================================================================!
 module solvation_math_wrapper
 !> module solvation_math_wrapper
