@@ -4,11 +4,11 @@ from ase.build import molecule
 from ase.optimize import BFGS
 from scipy.spatial.distance import pdist
 
-from pygfn0 import GFNFF
+from pygfn0 import GFN0
 
 
 def get_co() -> Atoms:
-    atoms = Atoms(molecule("CO"), calculator=GFNFF())
+    atoms = Atoms(molecule("CO"), calculator=GFN0())
     print(f"Energy: {atoms.get_potential_energy():.3f}eV")
     print("Forces: \n", atoms.get_forces())
     print("Positions: \n", atoms.positions)
