@@ -1,0 +1,79 @@
+[build-system]
+requires = [
+    "scikit-build-core>=0.11",
+    "charset_normalizer",
+    "f2py-cmake",
+    "numpy",
+]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "pygfn0"
+version = "v0.0.2"
+description = "A Python Library for GFN-FF."
+readme = "README.md"
+authors = [{ name = "Liu Gaoyong", email = "liugaoyong_88@163.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'Environment :: Console',
+    'Environment :: Other Environment',
+    'Intended Audience :: Education',
+    'Intended Audience :: Science/Research',
+    'License :: OSI Approved :: GNU General Public License (GPL)',
+    'Natural Language :: English',
+    'Operating System :: MacOS :: MacOS X',
+    'Operating System :: Microsoft :: Windows',
+    'Operating System :: POSIX :: Linux',
+    'Programming Language :: Python',
+    'Topic :: Scientific/Engineering :: Chemistry',
+    'Topic :: Software Development :: Libraries',
+]
+requires-python = ">=3.9"
+dependencies = ["ase", "numpy", "typing_extensions"]
+[dependency-groups]
+dev = ["pytest"]
+
+[project.urls]
+homepage = "https://github.com/LiuGaoyong/PyGFNFF"
+repository = "https://github.com/LiuGaoyong/PyGFNFF"
+
+[tool.scikit-build]
+build.verbose = true
+logging.level = "INFO"
+sdist.exclude = [".github"]
+wheel.license-files = ["LICENSE"]
+wheel.expand-macos-universal-tags = true
+minimum-version = "build-system.requires"
+build-dir = "build/{wheel_tag}"
+ninja.version = ">=1.10"
+cmake.version = ">=4.0"
+cmake.build-type = "Release"
+# add this can compatible with Windows MSYS
+#   https://github.com/actions/runner-images/discussions/7998
+cmake.args = ["-GNinja"]
+
+[tool.cibuildwheel]
+build-frontend = "build[uv]"
+test-requires = "pytest"
+test-command = "pytest -s {project}/tests"
+
+# uv config
+[tool.uv]
+package = false # editable when uv sync
+[[tool.uv.index]]
+url = "https://mirror.nju.edu.cn/pypi/web/simple"
+
+# pytest config
+[tool.pytest.ini_options]
+addopts = '--maxfail=1 -rf' # exit after 1 failures, report fail info
+testpaths = ["tests"]
+
+# ruff config
+[tool.ruff]
+line-length = 80
+indent-width = 4
+select = ["F", "E", "W", "UP", "D"]
+ignore = ["D100", "D103", "D104", "F722", 'UP038']
+[tool.ruff.pydocstyle]
+convention = "google"
