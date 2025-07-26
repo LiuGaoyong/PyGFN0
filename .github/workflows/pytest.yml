@@ -54,7 +54,7 @@ jobs:
           UV_DEFAULT_INDEX: https://pypi.org/simple
           CIBW_BUILD: cp${{ matrix.python }}-${{ matrix.platform_id }}
       - run: |
-          mv wheelhouse dist
+          mv  wheelhouse  dist
           pipx run --python 3.13 delvewheel==1.10 repair dist/*.whl -vv
           ls -l wheelhouse/*
           uv sync
