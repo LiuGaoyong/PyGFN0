@@ -44,26 +44,19 @@ def gfn0(
     charge = int(charge)
 
     if solvent == "":
-        iostat, energy, grad = lib.gfn0.gfn0_sp(
+        fail, energy, grad = lib.gfn0.gfn0_sp(
             len(numbers),
+            0,
             charge,
             numbers,
             np.asfortranarray(positions.T, dtype=np.float64),
         )
     else:
         raise NotImplementedError
-    if iostat == 0:
-        for postfix in ("topo", "adjacency"):
-            f = Path().joinpath(f"gfn0_{postfix}")
-            if f.exists() and f.is_file():
-                f.unlink()
+    if not fail:
         return energy, grad.T
-    elif iostat == 1:
-        raise RuntimeError("Fail to generate GFN0 topology.")
-    elif iostat == 2:
-        raise RuntimeError("Fail to perform SPE calculation.")
     else:
-        raise RuntimeError("Unknown error in Fortran backend.")
+        raise RuntimeError("Fail to perform SPE calculation.")
 
 
 class GFN0(ase_calc.Calculator):

@@ -25,5 +25,10 @@ list(APPEND srcs
   "${dir}/gfn0_module.f90"
   "${dir}/gfn0_interface.f90"
 )
-
 set(srcs ${srcs} PARENT_SCOPE)
+
+
+list(APPEND f2pysrcs
+  "${dir}/_pygfn0lib.f90"
+)
+set(f2pysrcs ${f2pysrcs} PARENT_SCOPE)
