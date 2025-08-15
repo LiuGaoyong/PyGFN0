@@ -1,4 +1,4 @@
-
+# PyGFN0
 
 [![Pypi version](https://img.shields.io/pypi/v/pygfn0)](https://pypi.org/project/pygfn0/)
 [![PyPI Downloads](https://static.pepy.tech/badge/pygfn0)](https://pepy.tech/projects/pygfn0)
@@ -41,4 +41,4 @@ print(f"C=O Length: {bl:.3f}\u212b")
 ### Reference
 
 1. P. Pracht, S. Grimme, et.al. A Robust Non-Self-Consistent Tight-Binding Quantum Chemistry Method for large Molecules (2019), DOI: https://doi.org/10.26434/chemrxiv.8326202.v1
-2. A standalone library of the GFN-FF method. https://github.com/pprcht/gfn0/
+2. A standalone library of the GFN0-xTB method. https://github.com/pprcht/gfn0/
