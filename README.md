@@ -1,9 +1,7 @@
-# PyGFN0
+
 
 [![Pypi version](https://img.shields.io/pypi/v/pygfn0)](https://pypi.org/project/pygfn0/)
-[![Pypi downloads](https://img.shields.io/pypi/dm/pygfn0)](https://pypi.org/project/pygfn0/)
-[![Pypi downloads](https://img.shields.io/pypi/dw/pygfn0)](https://pypi.org/project/pygfn0/)
-[![Pypi downloads](https://img.shields.io/pypi/dd/pygfn0)](https://pypi.org/project/pygfn0/)
+[![PyPI Downloads](https://static.pepy.tech/badge/pygfn0)](https://pepy.tech/projects/pygfn0)
 
 This is a Python version for [GFN0-xTB](https://github.com/pprcht/gfn0) based on F2PY.
 
