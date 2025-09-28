@@ -5,8 +5,8 @@ on:
     types: [published]
   push:
     tags:
-      - 'v*' # Alternative: only build for tags.
-  # pull_request:
+      - "v*" # Alternative: only build for tags.
+  pull_request:
 
 jobs:
   build_wheels:
@@ -40,42 +40,54 @@ jobs:
           - os: ubuntu-latest
             python: 39
             platform_id: manylinux_x86_64
+            manylinux_image: manylinux2014
           - os: ubuntu-latest
             python: 310
             platform_id: manylinux_x86_64
+            manylinux_image: manylinux2014
           - os: ubuntu-latest
             python: 311
             platform_id: manylinux_x86_64
+            manylinux_image: manylinux2014
           - os: ubuntu-latest
             python: 312
             platform_id: manylinux_x86_64
+            manylinux_image: manylinux2014
           - os: ubuntu-latest
             python: 313
             platform_id: manylinux_x86_64
+            manylinux_image: manylinux2014
           - os: ubuntu-latest
             python: 313t
             platform_id: manylinux_x86_64
             cibw_enable: cpython-freethreading
+            manylinux_image: manylinux2014
           # linux-aarch64
           - os: ubuntu-24.04-arm
             python: 39
             platform_id: manylinux_aarch64
+            manylinux_image: manylinux2014
           - os: ubuntu-24.04-arm
             python: 310
             platform_id: manylinux_aarch64
+            manylinux_image: manylinux2014
           - os: ubuntu-24.04-arm
             python: 311
             platform_id: manylinux_aarch64
+            manylinux_image: manylinux2014
           - os: ubuntu-24.04-arm
             python: 312
             platform_id: manylinux_aarch64
+            manylinux_image: manylinux2014
           - os: ubuntu-24.04-arm
             python: 313
             platform_id: manylinux_aarch64
+            manylinux_image: manylinux2014
           - os: ubuntu-24.04-arm
             python: 313t
             platform_id: manylinux_aarch64
             cibw_enable: cpython-freethreading
+            manylinux_image: manylinux2014
           # macos-x86-64
           - os: macos-13
             python: 39
@@ -145,7 +157,7 @@ jobs:
       - uses: actions/setup-python@v5
         if: runner.os == 'Windows'
         with:
-          python-version: '3.13'
+          python-version: "3.13"
       - run: pipx run --python 3.13 cibuildwheel==3.1.1
         if: runner.os == 'Windows'
         shell: msys2 {0}
@@ -198,8 +210,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags/v')
     permissions:
-        # IMPORTANT: this permission is mandatory for trusted publishing
-        id-token: write
+      # IMPORTANT: this permission is mandatory for trusted publishing
+      id-token: write
     steps:
       - uses: actions/download-artifact@v4
         with:
