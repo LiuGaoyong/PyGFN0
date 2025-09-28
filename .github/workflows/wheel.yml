@@ -167,27 +167,27 @@ jobs:
             platform_id: macosx_x86_64
             cibw_enable: cpython-freethreading
           # macos-arm64
-          - os: macos-latest
+          - os: macos-14
             python: 39
             macos_target: 14
             platform_id: macosx_arm64
-          - os: macos-latest
+          - os: macos-14
             python: 310
             macos_target: 14
             platform_id: macosx_arm64
-          - os: macos-latest
+          - os: macos-14
             python: 311
             macos_target: 14
             platform_id: macosx_arm64
-          - os: macos-latest
+          - os: macos-14
             python: 312
             macos_target: 14
             platform_id: macosx_arm64
-          - os: macos-latest
+          - os: macos-14
             python: 313
             macos_target: 14
             platform_id: macosx_arm64
-          - os: macos-latest
+          - os: macos-14
             python: 313t
             macos_target: 14
             platform_id: macosx_arm64
