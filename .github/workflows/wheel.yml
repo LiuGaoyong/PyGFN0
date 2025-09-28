@@ -10,7 +10,7 @@ on:
 
 jobs:
   build_wheels:
-    name: Build wheels for cp${{ matrix.python }}-${{ matrix.platform_id }}
+    name: Build wheels for cp${{ matrix.python }}-${{ matrix.platform_id }}${{ matrix.manylinux_image }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -88,58 +88,58 @@ jobs:
             platform_id: manylinux_aarch64
             cibw_enable: cpython-freethreading
             manylinux_image: manylinux2014
-          # linux-64 for manylinux_2_17
+          # linux-64 for manylinux_2_28
           - os: ubuntu-latest
             python: 39
             platform_id: manylinux_x86_64
-            manylinux_image: manylinux_2_17
+            manylinux_image: manylinux_2_28
           - os: ubuntu-latest
             python: 310
             platform_id: manylinux_x86_64
-            manylinux_image: manylinux_2_17
+            manylinux_image: manylinux_2_28
           - os: ubuntu-latest
             python: 311
             platform_id: manylinux_x86_64
-            manylinux_image: manylinux_2_17
+            manylinux_image: manylinux_2_28
           - os: ubuntu-latest
             python: 312
             platform_id: manylinux_x86_64
-            manylinux_image: manylinux_2_17
+            manylinux_image: manylinux_2_28
           - os: ubuntu-latest
             python: 313
             platform_id: manylinux_x86_64
-            manylinux_image: manylinux_2_17
+            manylinux_image: manylinux_2_28
           - os: ubuntu-latest
             python: 313t
             platform_id: manylinux_x86_64
             cibw_enable: cpython-freethreading
-            manylinux_image: manylinux_2_17
-          # linux-aarch64 for manylinux_2_17
+            manylinux_image: manylinux_2_28
+          # linux-aarch64 for manylinux_2_28
           - os: ubuntu-24.04-arm
             python: 39
             platform_id: manylinux_aarch64
-            manylinux_image: manylinux_2_17
+            manylinux_image: manylinux_2_28
           - os: ubuntu-24.04-arm
             python: 310
             platform_id: manylinux_aarch64
-            manylinux_image: manylinux_2_17
+            manylinux_image: manylinux_2_28
           - os: ubuntu-24.04-arm
             python: 311
             platform_id: manylinux_aarch64
-            manylinux_image: manylinux_2_17
+            manylinux_image: manylinux_2_28
           - os: ubuntu-24.04-arm
             python: 312
             platform_id: manylinux_aarch64
-            manylinux_image: manylinux_2_17
+            manylinux_image: manylinux_2_28
           - os: ubuntu-24.04-arm
             python: 313
             platform_id: manylinux_aarch64
-            manylinux_image: manylinux_2_17
+            manylinux_image: manylinux_2_28
           - os: ubuntu-24.04-arm
             python: 313t
             platform_id: manylinux_aarch64
             cibw_enable: cpython-freethreading
-            manylinux_image: manylinux_2_17
+            manylinux_image: manylinux_2_28
           # macos-x86-64
           - os: macos-13
             python: 39
@@ -244,7 +244,7 @@ jobs:
         shell: bash
       - uses: actions/upload-artifact@v4
         with:
-          name: cibw-wheels-cp${{ matrix.python }}-${{ matrix.platform_id }}-${{ strategy.job-index }}
+          name: cibw-wheels-cp${{ matrix.python }}-${{ matrix.platform_id }}${{ matrix.manylinux_image }}-${{ strategy.job-index }}
           path: ./wheelhouse/*.whl
 
   build_sdist:
