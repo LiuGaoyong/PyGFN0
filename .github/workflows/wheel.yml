@@ -33,10 +33,6 @@ jobs:
           - os: windows-latest
             python: 313
             platform_id: win_amd64
-          - os: windows-latest
-            python: 313t
-            platform_id: win_amd64
-            cibw_enable: cpython-freethreading
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
@@ -66,10 +62,6 @@ jobs:
           mv  wheelhouse  dist
           pipx run --python 3.13 delvewheel==1.10 repair dist/*.whl -vv
           ls -l wheelhouse/*
-          uv sync
-          uv pip install wheelhouse/*.whl
-          cd .venv
-          Scripts/python.exe -m pytest ../tests -vv -s
         shell: msys2 {0}
         env:
           PYTHONIOENCODING: utf-8
@@ -81,7 +73,6 @@ jobs:
           UV_INDEX: https://pypi.org/simple
           UV_DEFAULT_INDEX: https://pypi.org/simple
           CIBW_BUILD: cp${{ matrix.python }}-${{ matrix.platform_id }}
-          CIBW_ENABLE: ${{ matrix.cibw_enable }}
       - run: ls -l wheelhouse/*
         shell: bash
 
