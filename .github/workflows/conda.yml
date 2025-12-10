@@ -21,11 +21,11 @@ jobs:
         # Specifies a sub directory within the repository containing your meta.yml or conda_build_config files.
         # Defaults to 'conda'
         # Optional
-        sub-directory: 'conda'
+        sub-directory: '.github/conda'
         # Space separated string of conda channels to use during the build.
         # Defaults to 'conda-forge'
         # Optional
-        build-channels: 'conda-forge' 
+        build-channels: 'conda-forge'
         # Conda channel where the package will be uploaded.
         # Defaults to 'conda-forge'
         # Optional
