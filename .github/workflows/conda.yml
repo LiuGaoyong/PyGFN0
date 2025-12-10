@@ -1,0 +1,42 @@
+name: Publish to conda-forge
+
+on:
+  release:
+    types: [published]
+  push:
+    tags:
+      - "v*" # Alternative: only build for tags.
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v4.1.0
+
+    - name: Publish to Anaconda
+      uses: crabisoft/publish-conda@v1.0.0
+      with:
+        # Specifies a sub directory within the repository containing your meta.yml or conda_build_config files.
+        # Defaults to 'conda'
+        # Optional
+        sub-directory: '.github/conda'
+        # Space separated string of conda channels to use during the build.
+        # Defaults to 'conda-forge'
+        # Optional
+        build-channels: 'conda-forge'
+        # Conda channel where the package will be uploaded.
+        # Defaults to 'conda-forge'
+        # Optional
+        upload-channel: 'conda-forge'
+        # Space separated string of platforms to build.
+        # Defaults to "win-64 osx-64 linux-64"
+        platforms: 'win-64 osx-64 osx-arm64 linux-64'
+        # true for stable release, else false to indicate a beta version.
+        # Defaults to true
+        # Optional
+        stable : true
+        # Anaconda access token with read and write API permissions.
+        # Required
+        token: Li-958513a5-2c9d-4e0a-a28b-67087cf56623
