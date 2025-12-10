@@ -1,0 +1,47 @@
+schema_version: 1
+
+context:
+  name: pygfn0
+  version: 0.0.3
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/98/bb/85b74f75339e6e60e4a60cf0b4a7c2b7bbb48ebd54ebc87242eb3264ab26/pygfn0-0.0.3.tar.gz
+  sha256: 2cff08bd42754251088c9b3cd6682669fd3e11a150e3f83f6691a490a50c1af0
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python >=3.9
+    - scikit-build-core >=0.11
+    - charset_normalizer
+    - f2py-cmake
+    - numpy
+    - pip
+  run:
+    - python >=3.9
+    - ase
+    - numpy
+    - typing_extensions
+
+tests:
+  - python:
+      imports:
+        - pygfn0
+      pip_check: true
+
+about:
+  summary: A Python Library for GFN-FF.
+  license: GPL-3.0-only
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - LiuGaoyong

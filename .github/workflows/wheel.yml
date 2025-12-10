@@ -81,6 +81,7 @@ jobs:
           UV_INDEX: https://pypi.org/simple
           UV_DEFAULT_INDEX: https://pypi.org/simple
           CIBW_BUILD: cp${{ matrix.python }}-${{ matrix.platform_id }}
+          CIBW_ENABLE: ${{ matrix.cibw_enable }}
       - run: ls -l wheelhouse/*
         shell: bash
 
@@ -265,6 +266,7 @@ jobs:
           CIBW_BEFORE_ALL_LINUX: "yum install -y openblas-devel"
           CIBW_BUILD: cp${{ matrix.python }}-${{ matrix.platform_id }}
           MACOSX_DEPLOYMENT_TARGET: ${{ matrix.macos_target }}.0
+          CIBW_ENABLE: ${{ matrix.cibw_enable }}
       - run: ls -l wheelhouse/*
         shell: bash
 

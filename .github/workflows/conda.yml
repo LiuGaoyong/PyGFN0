@@ -39,4 +39,4 @@ jobs:
         stable : true
         # Anaconda access token with read and write API permissions.
         # Required
-        token: ${{ secrets.ANACONDA_TOKEN }}
+        token: Li-958513a5-2c9d-4e0a-a28b-67087cf56623
